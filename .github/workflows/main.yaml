@@ -29,6 +29,6 @@ jobs:
         uses: abatilo/actions-poetry@v2
       - name: Run tests project
         run: |
-          poetry install
+          poetry install --no-root
           poetry run pytest
           poetry run black --check ./clerk

@@ -5,7 +5,7 @@ description = "A sample SDK for the clerk API"
 authors = ["Your Name <you@example.com>"]
 license = "MIT"
 readme = "README.md"
-packages = [{include = "clerk_sdk"}]
+packages = [{include = "clerk"}]
 
 [tool.poetry.dependencies]
 python = "^3.9"
@@ -17,7 +17,7 @@ black = "^23.3.0"
 pytest = "^7.3.1"
 
 [tool.poetry.scripts]
-lint = "black clerk_sdk"
+lint = "black ./clerk"
 
 [build-system]
 requires = ["poetry-core"]
