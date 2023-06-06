@@ -21,7 +21,7 @@ class NullResponse(Response):
 
 
 class NullAdapter(BaseAdapter):
-    responses: Dict[str, Response]
+    responses: Dict[str, Dict]
 
     def __init__(self, responses):
         super().__init__()
@@ -41,6 +41,9 @@ class NullAdapter(BaseAdapter):
             raise Exception("None URL not allowed in NullAdapter")
 
         url_parts = urlparse(request.url)
+
+        if "raise" in self.responses[url_parts.path]:
+            raise self.responses[url_parts.path]["raise"]
 
         return NullResponse(self.responses[url_parts.path])
 
