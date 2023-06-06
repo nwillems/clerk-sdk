@@ -1,14 +1,20 @@
+import pytest
+
 import clerk
 import clerk.options as options
 
+public_key = "PROVIDE YOUR OWN"
+private_key = "PROVIDE OWN"
+
 
 # TODO: Consider if this should be an "integration test", that would also clean up after itself
+@pytest.mark.skip(reason="Reaches out to the world and needs API Keys")
 def test_products_get():
     # nullAdapter = NullAdapter({"response": "YES"})
     client = clerk.client(
         "products",
-        options.WithPublicKey("2EXSs1OJI9aFFdfZK9a4YuYPtKFtsjFJ"),
-        options.WithPrivateKey("5HfKYFZoYINv1xjmWB5glh3zxBJPMOX9"),
+        options.WithPublicKey(public_key),
+        options.WithPrivateKey(private_key),
     )
 
     product_list = client.get(resource_ids=["aaa", "bbb"])
@@ -17,12 +23,13 @@ def test_products_get():
     assert product_list["status"] == "ok"
 
 
+@pytest.mark.skip(reason="Reaches out to the world and needs API Keys")
 def test_products_post():
     # nullAdapter = NullAdapter({"response": "YES"})
     client = clerk.client(
         "products",
-        options.WithPublicKey("2EXSs1OJI9aFFdfZK9a4YuYPtKFtsjFJ"),
-        options.WithPrivateKey("5HfKYFZoYINv1xjmWB5glh3zxBJPMOX9"),
+        options.WithPublicKey(public_key),
+        options.WithPrivateKey(private_key),
     )
 
     response = client.post(
