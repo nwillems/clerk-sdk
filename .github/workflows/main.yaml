@@ -32,3 +32,8 @@ jobs:
           poetry install --no-root
           poetry run pytest
           poetry run black --check ./clerk
+      - name: Package and ready for publish
+        run: |
+          poetry build
+          # Could happen only on tag - however I like the idea that we use latest as dev, and then
+          #  tag when the semantic commits demand it
