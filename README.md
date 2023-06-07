@@ -25,10 +25,12 @@ products = products_resp["products"]
 
 Highlights:
 
-- API split into "generic resources", which is handled by a single class and Non-resource APIs implemented with "meaningful" method names
-- Use of nullable pattern for testing, to avoid over-the-wire requests
+- API split into "generic resources", which is handled by a single class([/clerk/wrappers/\_\_init\_\_.py](/clerk/wrappers/__init__.py)) and Non-resource APIs implemented with "meaningful" method names([/clerk/wrappers/subscribers.py](/clerk/wrappers/subscribers.py))
+- Use of nullable pattern for testing, to avoid over-the-wire requests([/tests/test_products_nulled.py](/tests/test_products_nulled.py))
 - Simple usage, see above
 - Uses requests underneath, and doesn't hide it(Maybe a little).
+- CICD Using github actions([/.github/workflows/main.yaml](/.github/workflows/main.yaml))
+-
 
 Thoughts from the code
 Comment above subscribers wrapper
